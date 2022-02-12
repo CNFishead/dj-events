@@ -1,13 +1,14 @@
 import React from "react";
+import Layout from "../../components/layout";
 
 /*
   Route: /events
 */
 const index = () => {
   return (
-    <div>
+    <Layout>
       <h1>My Events</h1>
-    </div>
+    </Layout>
   );
 };
 
