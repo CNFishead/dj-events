@@ -22,9 +22,12 @@ export default function Home({ events }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(`${API_URL}/api/events`);
-  const events = await res.json();
+  const res = await fetch(
+    `${API_URL}/api/events?populate=*_sort=date:ASC&_limit=3`
+  );
+  const json = await res.json();
+  const events = json.data;
   return {
-    props: { events: events.slice(0, 3) },
+    props: { events },
   };
 }

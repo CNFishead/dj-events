@@ -5,8 +5,8 @@ const { events } = require("./data.json");
  * ?           Therefore make sure you specify for the serverless functions what method you are expecting
  */
 export default (req, res) => {
-  const evt = events.filter((ev) => ev.slug === req.query.slug);
   if (req.method === "GET") {
+    const evt = events.filter((ev) => ev.slug === req.query.slug);
     res.status(200).json({ evt });
   } else {
     res.setHeader("Allow", ["GET"]);
